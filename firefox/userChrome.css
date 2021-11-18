@@ -1,0 +1,28 @@
+* {
+  /*--tab-corner-rounding: 5px;*/
+  --animation-speed: 0.4s;
+  --urlbar-container-height: 40px !important;
+  --urlbar-min-height: 30px !important;
+  --urlbar-height: 30px !important;
+  --urlbar-toolbar-height: 38px !important;
+  --moz-hidden-unscrollable: scroll !important;
+  --toolbarbutton-border-radius: 3px !important;
+  --tabs-border-color: transparent;
+}
+
+#TabsToolbar {
+  margin: 0;
+  padding: 0;
+}
+#TabsToolbar .tabbrowser-tab,
+#TabsToolbar .tabbrowser-tab .tab-stack,
+#TabsToolbar .tabbrowser-tab .tab-background,
+#TabsToolbar .tabbrowser-tab .tab-content {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  margin-top: 0px;
+  max-height: 36px !important;
+  text-align: center;
+}
