@@ -37,8 +37,9 @@ if &term =~ 'xterm-256color'    " mintty identifies itself as xterm-compatible
   endif
 endif
 
+set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 let s:fontsize = 8
 function! AdjustFontSize(amount)
   let s:fontsize = s:fontsize+a:amount
-  :execute "GuiFont! Noto Mono:h" . s:fontsize
+  :execute "GuiFont! Droid\ Sans\ Mono\ for\ Powerline:h" . s:fontsize
 endfunction

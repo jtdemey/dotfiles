@@ -14,4 +14,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'raimondi/delimitmate'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'fholgado/minibufexpl.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'leafgarland/typescript-vim'
+Plug 'junegunn/fzf'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()

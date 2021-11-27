@@ -1,1 +1,1 @@
-GuiFont Ubuntu\ Mono:h10
+GuiFont Droid\ Sans\ Mono\ for\ Powerline:h14 
