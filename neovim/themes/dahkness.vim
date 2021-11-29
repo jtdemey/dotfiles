@@ -1,5 +1,5 @@
 set background = "dark"
-colorscheme lucius
+colorscheme sexy-railscasts 
 set background=dark
 set termguicolors
 set noshowmode
