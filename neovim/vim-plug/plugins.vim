@@ -19,4 +19,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'junegunn/fzf'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 call plug#end()
