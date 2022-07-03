@@ -22,4 +22,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'codechips/coc-svelte', {'do': 'npm install'}
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 call plug#end()
