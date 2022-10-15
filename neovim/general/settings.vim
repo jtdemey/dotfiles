@@ -38,10 +38,13 @@ if &term =~ 'xterm-256color'    " mintty identifies itself as xterm-compatible
 endif
 
 "set guifont=Anonymous\ Pro:h16:cANSI
-"set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14:cANSI
-"set guifont=Fira\ Code:h14:cANSI
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13:cANSI
+"set guifont=Fira\ Code:h13:cANSI
+set guifont=IBM\ Plex\ Mono:h13:cANSI
 "set guifont=Inconsolata:h16:cANSI
-set guifont=Ubuntu\ Mono:h16:cANSI
+"set guifont=Noto\ Mono:h13:cANSI
+"set guifont=SF\ Sans\ Unicode:h13:cANSI
+"set guifont=Ubuntu\ Mono:h16:cANSI
 let s:fontsize = 8
 function! AdjustFontSize(amount)
   let s:fontsize = s:fontsize+a:amount

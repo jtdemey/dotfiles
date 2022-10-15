@@ -1,5 +1,5 @@
 set background = "dark"
-colorscheme base16-railscasts
+colorscheme hemisu 
 set background=dark
 set termguicolors
 set noshowmode
@@ -10,7 +10,17 @@ let g:lightline = { 'colorscheme': 'darkblack' }
 " alduin
 " argonaut
 " base16-railscasts
+" basic-dark
+" candycode
 " darkblack
 " darkburn
 " darkdevel
 " darkeclipse
+" gemcolors
+" getafe
+" ghostbuster
+" gotham
+" hybrid
+" happy_hacking
+" hemisu
+" OceanicNext
