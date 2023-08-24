@@ -19,7 +19,7 @@ require('packer').startup(function(use)
       'williamboman/mason-lspconfig.nvim',
 
       -- Useful status updates for LSP
-      'j-hui/fidget.nvim',
+      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim',
@@ -72,6 +72,9 @@ require('packer').startup(function(use)
 
   -- Auto scoping characters
   use 'raimondi/delimitmate'
+
+  -- Transparency
+  use 'xiyaowong/transparent.nvim'
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
@@ -131,9 +134,27 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
+-- Tab size
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+
 -- Set colorscheme
+-- Some nice ones:
+--   ayu (orange/blue/green)
+--   dante (green, quite dark)
+--   kalahari
+--   neonwave (magenta/lightblue)
+--   nerv-ous (reptar)
+--   PaperColor (orange/yellow/blue)
+--   predawn (light green, pale blue, orange)
+--   py-darcula (orange, turquoise, purple)
+--   pt_black (blue, purple, light green)
+--   pw (bluegreens)
+--   radicalgoodspeed (bright purple, gold, and green)
+--   rdark (white, neon green, orange)
 vim.o.termguicolors = true
-vim.cmd [[colorscheme Black]]
+vim.cmd [[colorscheme rdark]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -153,9 +174,15 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- ESC with kj
+vim.keymap.set('i', 'kj', '<C-[>')
+
 -- Buffer switching with \o and \p
 vim.keymap.set('n', '\\o', ':bp<CR>')
 vim.keymap.set('n', '\\p', ':bn<CR>')
+
+-- Telescope file_browser
+vim.keymap.set('n', '<leader>n', ':Telescope file_browser<CR>')
 
 -- Prettier formatting
 vim.keymap.set('n', '<leader>f', ':Prettier<CR>')
@@ -236,9 +263,6 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-
--- Prettier
--- vim.keymap.set('n', '<leader>z', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -364,19 +388,13 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
-
-  sumneko_lua = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
+  svelte = {},
+  tsserver = {},
 }
 
 -- Setup neovim lua configuration
 require('neodev').setup()
---
+
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
@@ -451,8 +469,12 @@ cmp.setup {
 require("telescope").load_extension "file_browser"
 
 -- Smooth scrolling
-require("neoscroll").setup()
+-- require("neoscroll").setup()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
+-- File extensions
+vim.cmd[[
+  autocmd BufNewFile,BufRead *.md set syntax=markdown
+]]
