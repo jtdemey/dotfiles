@@ -49,7 +49,6 @@ require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
 
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
@@ -59,9 +58,6 @@ require('packer').startup(function(use)
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
-
-  -- Smooth scroll
-  use 'karb94/neoscroll.nvim'
 
   -- File browser
   use 'nvim-telescope/telescope-file-browser.nvim'
@@ -75,6 +71,12 @@ require('packer').startup(function(use)
 
   -- Transparency
   use 'xiyaowong/transparent.nvim'
+
+  -- Status bar (lualine)
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
@@ -202,10 +204,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help lualine.txt`
 require('lualine').setup {
   options = {
-    icons_enabled = false,
-    theme = 'auto',
-    component_separators = '|',
-    section_separators = '',
+    icons_enabled = true,
+    theme = 'palenight',
+    component_separators = '⮁',
+    section_separators = '⮀',
   },
 }
 
@@ -467,9 +469,6 @@ cmp.setup {
 
 -- Enable file browser
 require("telescope").load_extension "file_browser"
-
--- Smooth scrolling
--- require("neoscroll").setup()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
