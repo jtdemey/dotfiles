@@ -53,6 +53,20 @@ local plugins = {
     lazy = false,
   },
 
+  -- Prettier
+  {
+    "neovim/nvim-lspconfig",
+    lazy = false,
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    lazy = false,
+  },
+  {
+    "MunifTanjim/prettier.nvim",
+    lazy = false,
+  },
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
